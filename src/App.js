@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(username, password);
-  };
+  const [count, setCount] = useState(0);
+  const [j, setJ] = useState(0);
+
+  useEffect(() => {
+    console.log(count);
+  }, [count, j])
+
+  useEffect(() => {
+    console.log("first rendering");
+  }, [])
+
+  const increment = () => {
+    setCount(count + 1);
+  }
 
   return (
     <div className="App">
-      <form onSubmit={onSubmit}>
-        <input
-          placeholder='Username'
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)}
-        /><br />
-        <input
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        /><br />
-        <button type='submit'>login</button>
-      </form>
+      useEffect
+      <button onClick={increment}>Click</button>
+      <button onClick={() => setJ(j + 1)}>Click2</button>
     </div>
   );
 }
