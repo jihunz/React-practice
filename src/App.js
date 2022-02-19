@@ -3,18 +3,23 @@ import Movie from './components/Movie';
 import MovieForm from './components/MovieForm';
 
 function App() {
-  const [movies, setMovies] = useState([
-    { title: "madmax", year: 2021},
-    { title: "madmax2", year: 2024},
-    { title: "madmax3", year: 2026},
-    { title: "madmax4", year: 2030}
-  ]);
+  const [movies, setMovies] = useState([]);
 
-  const renderMovies = movies.map(movie => {
+  const removeMovie = (id) => {
+    setMovies(movies.filter(movie => {
+      return movie.id !== id;
+    }))
+  };
+
+  const renderMovies = movies.length ? movies.map(movie => {
     return (
-      <Movie movie={movie} key={movie.title}></Movie>
-    )
-  });
+      <Movie 
+        movie={movie} 
+        key={movie.id}
+        removeMovie={removeMovie}  
+      />
+    );
+  }) : '추가된 영화가 없습니다';
 
   const addMovie = (movie) => {
     setMovies([
@@ -31,5 +36,5 @@ function App() {
     </div>
   )
 }
-
+  
 export default App;

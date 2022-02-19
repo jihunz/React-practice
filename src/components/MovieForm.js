@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = ({ addMovie }) => {
+const Form = ({ addMovie, removeMovie }) => {
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
 
@@ -12,6 +12,7 @@ const Form = ({ addMovie }) => {
     const onSubmit = (event) => {
         event.preventDefault();
         addMovie({
+            id: Date.now(),
             title: title,
             year: year
         });
