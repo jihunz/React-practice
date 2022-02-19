@@ -35,19 +35,21 @@ function App() {
     <Router>
       <div className='App'>
         <Navbar />
-        <Switch>
-          <Route path='/movies'>
-            <h1>Movie list</h1>
-            <MovieForm addMovie={addMovie}/>
-            {renderMovies}
-          </Route>
-          <Route path='/users'>
-            <Users />
-          </Route>
-          <Route path='/' exact>
-            <h1>Home</h1>
-          </Route>
-        </Switch>
+        <div className='container'>
+          <Switch>
+            <Route path='/movies'>
+              <h1>Movie list</h1>
+              <MovieForm addMovie={addMovie}/>
+              {renderMovies}
+            </Route>
+            <Route path='/users'>
+              <Users />
+            </Route>
+            <Route path='/' exact>
+              <h1>Home</h1>
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   )
