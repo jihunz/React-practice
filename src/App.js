@@ -28,6 +28,9 @@ function App() {
       title: title,
       year: year
     }]);
+
+    setTitle("");
+    setYear("");
   };
 
   return(
