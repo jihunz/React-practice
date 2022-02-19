@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Users from './pages/Users';
+import User from './pages/User';
 
 export default [
     {
@@ -14,5 +15,9 @@ export default [
     {
         path: '/users',
         component: Users
+    },
+    {
+        path: '/users/:id',
+        component: User
     }
 ];
