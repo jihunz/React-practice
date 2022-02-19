@@ -8,7 +8,6 @@ const User = () => {
     const [user, setUser] = useState('');
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    console.log(user);
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users/' + id)
@@ -18,14 +17,19 @@ const User = () => {
             setLoading(false);
         });
     }, []);
-
-    useEffect(() => {
-    }, [user])
+    
+    const userDetail = loading ? <Spinner /> : (
+        <div>
+            <div>{user.name}</div>
+            <div>{user.email}</div>
+            <div>{user.phone}</div>
+        </div>
+    )
 
     return (
         <>
             <h1>User Info</h1>
-            {loading ? <Spinner /> : null}
+            {userDetail}
         </>
     )
 }
