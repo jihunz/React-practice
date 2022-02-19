@@ -16,7 +16,6 @@ const Users = () => {
     }, []);
 
     useEffect(() => {
-        console.log(users);
     }, [users])
 
     return (
